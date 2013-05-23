@@ -20,6 +20,7 @@ public class Davis
 
     /**
      * Constructor with a filename with the commands
+     * @param filename name of the file containing matching commands and URLs
      */
     public Davis(String filename)
     {
@@ -40,12 +41,16 @@ public class Davis
         }
     }
 
+    /**
+     * Runs the infinite loop, waiting for commands and executing them
+     */
     public void run()
     {
         Scanner input = new Scanner(System.in);
-        while (true)
+        String command = "";
+        while (!command.equals("exit"))
         {
-            String command = input.next();
+            command = input.next();
             if (queryMap.containsKey(command))
             {
                 try
