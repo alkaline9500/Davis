@@ -15,6 +15,8 @@ import java.io.IOException;
 
 public class Davis
 {
+    // Exit command
+    public static final String EXIT = "exit";
     // HashMap Matching Commands with url queries
     private HashMap<String, String> queryMap;
 
@@ -43,12 +45,13 @@ public class Davis
 
     /**
      * Runs the infinite loop, waiting for commands and executing them
+     * Breaks with the command "exit"
      */
     public void run()
     {
         Scanner input = new Scanner(System.in);
         String command = "";
-        while (!command.equals("exit"))
+        while (!command.equals(Davis.EXIT))
         {
             command = input.next();
             if (queryMap.containsKey(command))
